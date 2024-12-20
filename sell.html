@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Marketplace</title>
+    <link rel="stylesheet" href="sell.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <h1>Tech Hub Marketplace</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="#buy">Buy</a>
+    <a href="#sell">Sell</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+    <section id="buy">
+        <h2>Available Products</h2>
+        <div id="product-listing" class="product-listing">
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/71Ub8WkXLxL._AC_UF894,1000_QL80_.jpg" alt="Used Graphics Card">
+                <h2>Used Graphics Card</h2>
+                <p>Model: NVIDIA GTX 1080</p>
+                <p class="price">125 OMR</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://vision-techno.com/assets/images/columnsblocks/product10/7488.jpg" alt="Used CPU">
+                <h2>Used CPU</h2>
+                <p>Model: Intel Core i7-9700K</p>
+                <p class="price">150 OMR</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product">
+                <img src="https://m.media-amazon.com/images/I/61855pdL8xL._AC_SL1440_.jpg" alt="Used SSD">
+                <h2>Used SSD</h2>
+                <p>Brand: Samsung 500GB</p>
+                <p class="price">35 OMR</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="sell">
+        <h2>Sell Your Hardware</h2>
+        <p>Got used PC hardware to sell? Fill out the form below to list your products.</p>
+        <form action="#" method="POST" class="contact-form">
+            <input type="text" id="product-name" name="product-name" placeholder="Product Name" required>
+            <input type="text" id="product-model" name="product-model" placeholder="Product Model" required>
+            <input type="text" id="price" name="price" placeholder="Price" required>
+            <textarea id="description" name="description" placeholder="Product Description" rows="4" required></textarea>
+            <button type="submit">Submit Product</button>
+        </form>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="mailto:your-email@example.com" method="POST" class="contact-form">
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section id="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul class="leaderboard">
+            <li>Ahmed Al-Mahrouqi - 2500 OMR Sales</li>
+            <li>Abdullah Al-Asemi - 2000 OMR Sales</li>
+            <li>Hamed Al-Shaybany - 1500 OMRSales</li>
+        </ul>
+    </section>
+</div>
+
+<footer>
+    <p>&copy; 2024 Tech Hub. All Rights Reserved.</p>
+</footer>
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('sell').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = {
+                productName: document.getElementById('product-name').value,
+                productModel: document.getElementById('product-model').value,
+                price: document.getElementById('price').value,
+                description: document.getElementById('description').value
+            };
+
+            fetch('http://localhost:3000/sell', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                // Optionally, clear the form fields
+                document.getElementById('sell').reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting the product.');
+            });
+        });
+    });
+</script>
+<script>
+    // Fetch and display products in the marketplace
+    fetch('http://localhost:3000/products')
+        .then(response => response.json())
+        .then(products => {
+            const productListing = document.getElementById('product-listing');
+            products.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.classList.add('product');
+                productElement.innerHTML = `
+                    <img src="https://via.placeholder.com/150" alt="${product.product_name}">
+                    <h2>${product.product_name}</h2>
+                    <p>Model: ${product.product_model}</p>
+                    <p class="price">${product.price} OMR</p>
+                    <button>Buy Now</button>
+                `;
+                productListing.appendChild(productElement);
+            });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error fetching products.');
+        });
+</script>
+</html>

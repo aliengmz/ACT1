@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Tech</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo" style="font-size: 25px;">High Tech</div>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li id="auth-section">
+                    <span id="user-greeting" style="display: none;">
+                        Hello, <span id="username"></span>
+                    </span>
+                </li>
+                
+            </ul>
+        </nav>
+        
+    </header>
+    
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to High Tech</h1>
+            <p>Power Up Your Build – Quality PC Parts, Unmatched Performance!</p>
+            <a href="#services" class="cta-btn">Explore Products</a>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="services-container">
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1560252771-4f4a8dcea42f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service One Image">
+                    <div class="overlay">
+                        <h3>Every Part from A to Z</h3>
+                        <a href="buy.html"><button>Learn More</button></a>
+                    </div>
+                </div>
+                <h3>Get New PC Parts</h3>
+
+            </div>
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1591238372338-22d30c883a86?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service Two Image">
+                    <div class="overlay">
+                        <h3>Showcase Your Own PC Parts</h3>
+                        <a href="sell.html"><button>Learn More</button></a>
+                    </div>
+                </div>
+                <h3>Buy & Sell Used PC Parts</h3>
+            </div>
+            <div class="service-item">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1624701928517-44c8ac49d93c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Service Three Image">
+                    <div class="overlay">
+                        <h3>Not Sure? We got you</h3>
+                        <a href="build.html"><button>Learn More</button></a>
+                    </div>
+                </div>
+                <h3>Smart PC Building</h3>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about">
+        <div class="about-container">
+            <h2>About High Tech</h2>
+            <div class="about-intro">
+                <p>Welcome to High Tech, Where innovation meets performance. We're dedicated to providing the best in new and pre-owned PC parts, along with personalized solutions that help users craft their perfect build with ease.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-section" data-section="mission">
+                    <img src="https://images.unsplash.com/photo-1698440050363-1697e5f0277c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Mission Image">
+                    <h3>Our Mission</h3>
+                    <p>To empower tech enthusiasts by offering top-quality PC components, both new and pre-owned, alongside reliable support and cutting-edge tools. We strive to make PC building accessible, efficient, and exciting for everyone.</p>
+                </div>
+                <div class="about-section" data-section="vision">
+                    <img src="https://images.unsplash.com/photo-1699796990049-3406a9991baa?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Vision Image">
+                    <h3>Our Vision</h3>
+                    <p>To become a global leader in PC part solutions, renowned for our smart-building platform that simplifies and enhances the experience of creating custom builds tailored to individual needs.</p>
+                </div>
+                <div class="about-section" data-section="values">
+                    <img src="https://images.unsplash.com/photo-1669480380782-b055a193d066?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Our Core Values Image">
+                    <h3>Core Values</h3>
+                    <p>To be the ultimate hub for PC innovation and connection, elevating every user’s journey with high-performance components and a dedicated, intelligent building experience. We envision High Tech as the go-to platform for tech lovers to explore, customize, and perfect their dream PC setups.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="contact-container">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out to us!</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="cta-btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+    
+    
+    <footer>
+        <p>&copy; 2024 High Tech. All Rights Reserved.</p>
+    </footer>
+
+</body>
+<!-- <script src="main.js"></script> -->
+<script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        const username = localStorage.getItem('username'); // Retrieve the username
+        const userGreeting = document.getElementById('user-greeting');
+        const usernameSpan = document.getElementById('username');
+    
+        if (username) {
+            // Display the greeting with the username
+            userGreeting.style.display = 'inline';
+            usernameSpan.textContent = username;
+        }
+    });
+    
+</script>
+</html>

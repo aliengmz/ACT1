@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart PC Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
+    <style>
+        /* General body styling */
+        body {
+            font-family: "Exo 2", sans-serif;
+            background: linear-gradient(to right, #2c3e50, #8e44ad);
+            color: white;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Container for the main content */
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #9b59b6;
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        /* Styling for question and button elements */
+        .question-container {
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 0.5s forwards;
+        }
+
+        .question {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #f1f1f1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        button {
+            font-family: "Exo 2", sans-serif;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #8e44ad, #d45d94);
+            color: white;
+            font-size: 1.1em;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.2s, box-shadow 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Progress bar styles */
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background-color: #333;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0;
+            background-color: #8e44ad;
+            transition: width 0.5s ease;
+        }
+
+        /* Result area */
+        .result {
+            background-color: #fff;
+            color: #333;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .result h2 {
+            color: #8e44ad;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .result p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Hidden class for hiding questions */
+        .hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tech Hub Smart PC Builder Guide</h1>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+
+        <div id="questionnaire">
+            <div class="question-container" id="q1">
+                <div class="question">What's your primary use for this PC?</div>
+                <div class="options">
+                    <button onclick="answer(1, 'gaming')">Gaming</button>
+                    <button onclick="answer(1, 'workstation')">Workstation/Content Creation</button>
+                    <button onclick="answer(1, 'office')">Office/Basic Use</button>
+                </div>
+            </div>
+
+            <div class="question-container hidden" id="q2">
+                <div class="question">What's your budget range?</div>
+                <div class="options">
+                    <button onclick="answer(2, 'budget')">Budget ($500-$800)</button>
+                    <button onclick="answer(2, 'mid')">Mid-range ($800-$1500)</button>
+                    <button onclick="answer(2, 'high')">High-end ($1500+)</button>
+                </div>
+            </div>
+
+            <div class="question-container hidden" id="q3">
+                <div class="question">Do you plan to overclock?</div>
+                <div class="options">
+                    <button onclick="answer(3, 'yes')">Yes</button>
+                    <button onclick="answer(3, 'no')">No</button>
+                </div>
+            </div>
+
+            <div class="question-container hidden" id="q4">
+                <div class="question">What resolution do you plan to use?</div>
+                <div class="options">
+                    <button onclick="answer(4, '1080p')">1080p</button>
+                    <button onclick="answer(4, '1440p')">1440p</button>
+                    <button onclick="answer(4, '4k')">4K</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="result" id="result">
+            <h2>Your Recommended Build</h2>
+            <div id="build-details"></div>
+        </div>
+    </div>
+
+    <script>
+        let userAnswers = {};
+        let currentQuestion = 1;
+        const totalQuestions = 4;
+
+        function updateProgress() {
+            const progress = ((currentQuestion - 1) / totalQuestions) * 100;
+            document.querySelector('.progress').style.width = progress + '%';
+        }
+
+        function answer(questionNumber, value) {
+            userAnswers[questionNumber] = value;
+
+            // Hide current question
+            document.getElementById(`q${questionNumber}`).classList.add('hidden');
+
+            // Show next question
+            currentQuestion++;
+            updateProgress();
+
+            if (currentQuestion <= totalQuestions) {
+                document.getElementById(`q${currentQuestion}`).classList.remove('hidden');
+            } else {
+                showResult();
+            }
+        }
+
+        async function showResult() {
+            const result = document.getElementById('result');
+            const buildDetails = document.getElementById('build-details');
+
+            try {
+                const response = await fetch('./json/pc_builds.json');
+                const data = await response.json();
+
+                // Select a random build
+                const randomIndex = Math.floor(Math.random() * data.builds.length);
+                const build = data.builds[randomIndex];
+
+                buildDetails.innerHTML = `
+                    <h3>Recommended Components:</h3>
+                    <p><strong>CPU:</strong> ${build.cpu}</p>
+                    <p><strong>GPU:</strong> ${build.gpu}</p>
+                    <p><strong>RAM:</strong> ${build.ram}</p>
+                    <p><strong>Motherboard:</strong> ${build.motherboard}</p>
+                    <p><strong>Storage:</strong> ${build.storage}</p>
+                    <p><strong>Power Supply:</strong> ${build.psu}</p>
+                    <p><strong>Case:</strong> ${build.case}</p>
+                    <p><strong>Estimated Total:</strong> ${build.price}</p>
+                    <a href="index.html">Home</a>
+                `;
+
+                document.querySelector('.progress').style.width = '100%';
+                result.style.display = 'block';
+            } catch (error) {
+                buildDetails.innerHTML = `<p>Failed to fetch data. Please try again later.</p>`;
+                result.style.display = 'block';
+                console.error('Error fetching build data:', error);
+            }
+        }
+    </script>
+
+</body>
+</html>

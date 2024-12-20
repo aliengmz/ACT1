@@ -1,0 +1,35 @@
+{
+    "builds": [
+      {
+        "cpu": "AMD Ryzen 7 7800X3D",
+        "gpu": "NVIDIA RTX 4080",
+        "ram": "32GB DDR5-6000",
+        "motherboard": "ASUS ROG X670E-E Gaming",
+        "storage": "2TB NVMe PCIe 4.0 SSD",
+        "psu": "850W 80+ Gold",
+        "case": "Lian Li O11 Dynamic",
+        "price": "$2,500-$3,000"
+      },
+      {
+        "cpu": "AMD Ryzen 5 7600X",
+        "gpu": "NVIDIA RTX 4070",
+        "ram": "16GB DDR5-5600",
+        "motherboard": "MSI B650 Gaming Plus",
+        "storage": "1TB NVMe PCIe 4.0 SSD",
+        "psu": "750W 80+ Bronze",
+        "case": "Corsair 4000D Airflow",
+        "price": "$1,200-$1,400"
+      },
+      {
+        "cpu": "Intel Core i5-13600K",
+        "gpu": "NVIDIA RTX 4060 Ti",
+        "ram": "16GB DDR4-3600",
+        "motherboard": "MSI B660 Tomahawk",
+        "storage": "1TB NVMe PCIe 4.0 SSD",
+        "psu": "650W 80+ Gold",
+        "case": "Phanteks P300A",
+        "price": "$1,000-$1,200"
+      }
+    ]
+  }
+  
